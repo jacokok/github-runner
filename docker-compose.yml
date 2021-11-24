@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  worker:
+    image: myoung34/github-runner:latest
+    environment:
+      REPO_URL: https://github.com/jacokok/github-runner
+      RUNNER_NAME: test
+      RUNNER_WORKDIR: /tmp/runner/work
+      ACCESS_TOKEN: token
+      RUNNER_SCOPE: repo
+      LABELS: linux,x64
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/tmp/runner:/tmp/runner'
